@@ -2,6 +2,10 @@
 # wm independent hotkeys
 #
 
+# Browser
+super + b
+	brave
+
 # Screensots
 super + Print 
 	scrot -s
