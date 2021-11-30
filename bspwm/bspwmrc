@@ -1,0 +1,31 @@
+#! /bin/sh
+
+sxhkd &
+picom -f &
+setxkbmap latam
+nitrogen --restore &
+udiskie &
+$HOME/.config/polybar/launch.sh
+$HOME/.config/scripts/monitores.sh
+
+bspc monitor LVDS-1 -d browser code comunication music images devel 
+bspc monitor HDMI-1 -d browser code cominucation music images devel
+
+bspc config border_width         3
+bspc config window_gap           6
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+bspc config focus_follows_pointer true
+
+bspc config focused_border_color  "#800080"
+bspc config active_border_color "800080"
+
+bspc rule -a brave desktop=browser
+bspc rule -a Thunar state=floating
+bspc rule -a spotify state=floating
+bspc rule -a telegram-desktop desktop=files
+bspc rule -a zoom state=floating
+bspc rule -a Gnome-calculator state=floating
+bspc rule -a SimpleScreenRecorder state=floating
+
