@@ -23,7 +23,6 @@ bspc config active_border_color "800080"
 
 bspc rule -a brave desktop=browser
 bspc rule -a Thunar state=floating
-bspc rule -a spotify state=floating
 bspc rule -a telegram-desktop desktop=files
 bspc rule -a zoom state=floating
 bspc rule -a Gnome-calculator state=floating
