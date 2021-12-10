@@ -5,7 +5,15 @@ killall -q polybar
 # If all your bars have ipc enabled, you can also use 
 # polybar-msg cmd quit
 
-# Launch Polybar, using default config location ~/.config/polybar/config
-polybar example 2>&1 | tee -a /tmp/polybar.log & disown
+# Wait until the precesses have been shut down
+while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
-echo "Polybar launched..."
+# Launch polybar
+polybar laptop-bar &
+
+# Execute the second bar if monitor is connected
+
+if [[ $(xrandr -q | grep 'HDMI1 connected') ]]; then
+	polybar external-monitor &
+fi
+

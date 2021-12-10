@@ -6,30 +6,47 @@
 super + b
 	brave
 
-# Screensots
+# Screenshot
 super + Print 
 	scrot -s
 
 Print
 	scrot
 
+# Virtual Machines - QEMU KVM
 super + q 
 	virt-manager
 
 # terminal emulator
 super + Return
-	xfce4-terminal	
+	alacritty
 
+# File Manager
 super + e 
 	thunar	
 
 # program launcher
 super + r
-	rofi -show drun -show-icons -theme gruvbox-dark -font "CascadiaCode 12"
+	rofi -show drun 
 
 # Windows Switcher
 super + alt + m
-	rofi window -theme gruvbox-dark -show-icons -show
+	rofi -show
+
+# Code
+super + c
+	code
+
+# betterlockscreen , screen saver and locker
+super + alt + l
+	betterlockscreen --lock dimblur --off 10
+
+
+#
+#
+# SXHKD HOTKEYS
+#
+#
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -156,3 +173,12 @@ XF86Audio{Raise,Lower}Volume
 
 XF86AudioMute
 	pulsemixer --toggle-mute
+
+#Multiple monitors
+
+# focus desktop if available on monitor, otherwise get through swap
+# if desktop is active on another monitor, focused and active desktops are swapped, and focus stays on focused monitor.
+mod + 1-9,0
+    d='{1-9,10}'; \
+    bspc desktop -f "$d.local" || bspc desktop -s "$d.local"
+
